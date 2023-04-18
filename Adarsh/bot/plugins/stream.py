@@ -24,7 +24,7 @@ pass_db = Database(Var.DATABASE_URL, "ag_passwords")
 async def login_handler(c: Client, m: Message):
     try:
         try:
-            ag = await m.reply_text("Now send me password.\n\n for password send 10rs to `sharundas123@ybl` and send screen shot to @kwicadmin \n\n (for running bot need contributions..unwanted message = ban + report)")
+            ag = await m.reply_text("Now send me password.\n\n pass is 6969")
             _text = await c.listen(m.chat.id, filters=filters.text, timeout=90)
             if _text.text:
                 textp = _text.text
@@ -34,13 +34,13 @@ async def login_handler(c: Client, m: Message):
             else:
                 return
         except TimeoutError:
-            await ag.edit("I can't wait more for password, try again")
+            await ag.edit("I can't wait more for password, 6969 is the pass")
             return
         if textp == MY_PASS:
             await pass_db.add_user_pass(m.chat.id, textp)
             ag_text = "yeah! you entered the password correctly"
         else:
-            ag_text = "Wrong password, try again"
+            ag_text = "Wrong password, type 6969 "
         await ag.edit(ag_text)
     except Exception as e:
         print(e)
@@ -50,7 +50,7 @@ async def private_receive_handler(c: Client, m: Message):
     if MY_PASS:
         check_pass = await pass_db.get_user_pass(m.chat.id)
         if check_pass== None:
-            await m.reply_text("ʟᴏɢɪɴ ғɪʀsᴛ ᴜsɪɴɢ /login ᴄᴍᴅ(ᴛʏᴘᴇ /login)  \n\n for password send 10rs to `sharundas123@ybl` and send screen shot to @kwicadmin \n\n (for running bot need contributions..unwanted message = ban + report)")
+            await m.reply_text("ʟᴏɢɪɴ ғɪʀsᴛ ᴜsɪɴɢ /login ᴄᴍᴅ(ᴛʏᴘᴇ /login 6969 ")
             return
         if check_pass != MY_PASS:
             await pass_db.delete_user(m.chat.id)
@@ -112,7 +112,7 @@ async def private_receive_handler(c: Client, m: Message):
 
 <b>🖥 ᴡᴀʏᴄʜ ᴏɴʟɪɴᴇ :- </b> <i><b>{}</b></i>
 
-<b>♻️ ᴛʜɪs ʟɪɴᴋ ɪs ᴘᴇʀᴍᴀɴᴇɴᴛ ᴀɴᴅ ᴡᴏɴ'ᴛ ɢᴇᴛs ᴇxᴘɪʀᴇᴅ ♻️\n\n@MoviesNowV2</b>"""
+<b>♻️ ᴛʜɪs ʟɪɴᴋ ɪs ᴘᴇʀᴍᴀɴᴇɴᴛ ᴀɴᴅ ᴡᴏɴ'ᴛ ɢᴇᴛs ᴇxᴘɪʀᴇᴅ ♻️\n\n@blackest_harbour</b>"""
 
         await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True, quote=True)
         await m.reply_text(
@@ -134,10 +134,10 @@ async def channel_receive_handler(bot, broadcast):
     if MY_PASS:
         check_pass = await pass_db.get_user_pass(broadcast.chat.id)
         if check_pass == None:
-            await broadcast.reply_text("Login first using /login cmd \n don\'t know the pass? request it from @kwicadmin")
+            await broadcast.reply_text("Login first using /login cmd \n don\'t know the pass? here it is 6969")
             return
         if check_pass != MY_PASS:
-            await broadcast.reply_text("Wrong password, login again")
+            await broadcast.reply_text("Wrong password, login again 6969 is pass")
             await pass_db.delete_user(broadcast.chat.id)
             return
     if int(broadcast.chat.id) in Var.BANNED_CHANNELS:
